@@ -1,4 +1,7 @@
 // This function creates a random computer selection from the given three options.
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
     const gameOptions = ["Rock", "Paper", "Scissors"];
     return gameOptions[Math.floor(Math.random() * gameOptions.length)];
@@ -34,42 +37,40 @@ for (let i = 0; i < 5; i++) {
     game(); 
 }
 
-// let gameRound = 0;
-
-
-function playerWin() {
-    
-}
-
 function game() {
     let playerSelection = prompt("Choose Your Fighter: Rock, Paper, or Scissors?");
     let computerSelection = computerPlay();
-    let playerScore = 0;
-    let computerScore = 0;
 
-    function playRound(playerSelection, computerSelection, playerScore, computerScore) {
+    function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "Scissors"){
-                playerScore = ++playerScore;
+                playerScore += 1;
                 console.log(`You win! Rock beats scissors. Player: ${playerScore} Computer: ${computerScore}`);
             } else if  (playerSelection == "rock" && computerSelection == "Paper"){
-                computerScore = ++computerScore;
+                computerScore += 1;
                 console.log(`You lose! Paper beats rock.  Player: ${playerScore} Computer: ${computerScore}`);
             } else if (playerSelection == "scissors" && computerSelection == "Rock"){
-                computerScore = ++computerScore;
+                computerScore += 1;
                 console.log(`You lose! Rock beats scissors. Player: ${playerScore} Computer: ${computerScore}`);
             } else if (playerSelection == "scissors" && computerSelection == "Paper"){
-                playerScore = ++playerScore;
+                playerScore += 1;
                 console.log(`You win! Scissors beats paper.  Player: ${playerScore} Computer: ${computerScore}`);
             } else if (playerSelection == "paper" && computerSelection == "Rock"){
-                playerScore = ++playerScore;
+                playerScore += 1;
                 console.log(`You win! Paper beats rock.  Player: ${playerScore} Computer: ${computerScore}`);
             } else if (playerSelection == "paper" && computerSelection == "Scissors"){
-                computerScore = ++computerScore;
+                computerScore += 1;
                 console.log(`You lose! Scissors beat paper.  Player: ${playerScore} Computer: ${computerScore}`);
             } else console.log(`You tied!  Player: ${playerScore} Computer: ${computerScore}`);
         }
-    console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
+    console.log(playRound(playerSelection, computerSelection));
+    
+    function winner() {
+        if (playerScore > computerScore) {
+        console.log(`You win! Player: ${playerScore}. Computer: ${computerScore}.`)
+        } else if (playerScore < computerScore) {
+        console.log(`You lose. Player: ${playerScore} Computer: ${computerScore}.`)
+        } else console.log('You tied! Player: ${playerScore}. Computer: ${computerScore}.')
+    }
 }
-
 
 
