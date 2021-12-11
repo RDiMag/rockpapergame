@@ -7,38 +7,17 @@ function computerPlay() {
     return gameOptions[Math.floor(Math.random() * gameOptions.length)];
 }
 
-// This prompt requests and stores data for the player's choice.
-// var playerSelection = prompt("Choose Your Fighter: Rock, Paper, or Scissors?");
-// var computerSelection = computerPlay();
+document.getElementById('rock').onclick = playRound, computerPlay;
+document.getElementById('paper').onclick = playRound, computerPlay;
+document.getElementById('scissors').onclick = playRound, computerPlay;
 
-// This function allows for one round of play and returns a string based on the user input vs. computer input.
-
-// function playRound(playerSelection, computerSelection) {
-//     if (playerSelection == "rock" && computerSelection == "Scissors"){
-//             return "You win! Rock beats scissors.";
-//         } else if  (playerSelection == "rock" && computerSelection == "Paper"){
-//             return "You lose! Paper beats rock.";
-//         } else if (playerSelection == "scissors" && computerSelection == "Rock"){
-//             return "You lose! Rock beats scissors.";
-//         } else if (playerSelection == "scissors" && computerSelection == "Paper"){
-//             return "You win! Scissors beat paper.";
-//         } else if (playerSelection == "paper" && computerSelection == "Rock"){
-//             return "You win! Paper beats rock.";
-//         } else if (playerSelection == "paper" && computerSelection == "Scissors"){
-//             return "You lose! Scissors beat paper.";
-//         } else return "You tied!";
-// }
-
-
-// This function will contain the function playRound and run it 5 times.
-// It must return a message each game, and a message listing the winner at the end.
-
-for (let i = 0; i < 5; i++) {
-    game(); 
-}
+function playRound() {
+    var playerSelection = this.id;
+    var computerSelection = computerPlay();
+    console.log("User: " + playerSelection)
+    console.log("Computer: " + computerSelection)
 
 function game() {
-    let playerSelection = prompt("Choose Your Fighter: Rock, Paper, or Scissors?");
     let computerSelection = computerPlay();
 
     function playRound(playerSelection, computerSelection) {
@@ -71,6 +50,7 @@ function game() {
         console.log(`You lose. Player: ${playerScore} Computer: ${computerScore}.`)
         } else console.log('You tied! Player: ${playerScore}. Computer: ${computerScore}.')
     }
+}
 }
 
 
