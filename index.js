@@ -46,7 +46,6 @@ function playRound() {
         winner();
 
 //Winner function should update "gameover" div with a message when playerScore or computerScore reaches 5.
-//It works sometimes but is unpredictable. Sometimes it allows scores far higher than 5.
 //It should also call endGame to disable buttons and update "results" div. 
 
             function winner() {
